@@ -1,7 +1,7 @@
 {
-  "name": "template-base-serverless-plugin",
-  "version": "0.2.2",
-  "description": "Serverless plugin",
+  "name": "serverless-https-certificate",
+  "version": "0.0.1",
+  "description": "Serverless acm https certificate plugin",
   "keywords": [
     "Serverless"
   ],
@@ -19,7 +19,7 @@
     "release:major": "npm run release -- --release-as major",
     "release:minor": "npm run release -- --release-as minor",
     "release:patch": "npm run release -- --release-as patch",
-    "unpublish": "npx force-unpublish template-base-serverless-plugin 'npmrc remove module'"
+    "unpublish": "npx force-unpublish serverless-https-certificate 'npmrc remove module'"
   },
   "husky": {
     "hooks": {
@@ -48,6 +48,7 @@
     "husky": "4.2.3",
     "lint-staged": "10.0.8",
     "npx": "10.2.2",
-    "prettier": "2.0.1"
+    "prettier": "2.0.1",
+    "serverless-deployment-bucket": "1.1.2"
   }
 }

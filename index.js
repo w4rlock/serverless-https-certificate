@@ -1,7 +1,9 @@
 const BaseServerlessPlugin = require('base-serverless-plugin');
+const certificate = require('./src/certificate');
+const route53 = require('./src/route53');
 
-const LOG_PREFFIX = '[ServerlessPlugin] -';
-const USR_CONF = 'pluginConfig';
+const LOG_PREFFIX = '[ServerlessHttpsCertificate] -';
+const USR_CONF = 'certificate';
 
 class ServerlessPlugin extends BaseServerlessPlugin {
   /**
@@ -12,12 +14,37 @@ class ServerlessPlugin extends BaseServerlessPlugin {
    */
   constructor(serverless, options) {
     super(serverless, options, LOG_PREFFIX, USR_CONF);
+    Object.assign(this, certificate, route53);
 
     this.hooks = {
-      'after:deploy:deploy': this.dispatchAction.bind(this, this.deploy),
-      'after:info:info': this.dispatchAction.bind(this, this.info),
-      'after:remove:remove': this.dispatchAction.bind(this, this.remove),
+      'before:deploy:deploy': this.dispatch.bind(this, this.beforeDeploy),
+      'certificate:create:create': this.dispatch.bind(
+        this,
+        this.handleCert,
+        undefined,
+        true
+      ),
     };
+
+    this.commands = {
+      certificate: {
+        usage: 'certificate',
+        commands: {
+          create: {
+            usage: 'Create new acm certificate',
+            lifecycleEvents: ['create'],
+          },
+        },
+      },
+    };
+  }
+
+  /**
+   * Before Deploy Hook
+   *
+   */
+  async beforeDeploy() {
+    await this.handleCert();
   }
 
   /**
@@ -25,9 +52,14 @@ class ServerlessPlugin extends BaseServerlessPlugin {
    *
    * @param {function} funAction serverless plugin action
    */
-  async dispatchAction(funAction, varResolver = undefined) {
+  async dispatch(funAction, varResolver = undefined, fromCommand = false) {
     if (this.isPluginDisabled()) {
       this.log('warning: plugin is disabled');
+      return '';
+    }
+
+    const disableHooks = this.getConf('disableLifecycleHooks', false);
+    if (disableHooks && !fromCommand) {
       return '';
     }
 
@@ -41,32 +73,8 @@ class ServerlessPlugin extends BaseServerlessPlugin {
    */
   loadConfig() {
     this.cfg = {};
-    this.cfg.prop = this.getConf('prop', 'default_value');
-    this.cfg.requiredProp = this.getConf('prop');
-  }
-
-  /**
-   * Deploy
-   *
-   */
-  async deploy() {
-    this.log('Deploy...');
-  }
-
-  /**
-   * Info
-   *
-   */
-  async info() {
-    this.log('Info...');
-  }
-
-  /**
-   * Remove
-   *
-   */
-  async remove() {
-    this.log('Removing...');
+    this.cfg.domain = this.getConf('domain');
+    this.cfg.certificate = this.getConf('name');
   }
 }
 

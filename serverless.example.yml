@@ -1,0 +1,22 @@
+service:
+  name: certificate-test
+  group: team_name
+
+provider:
+  name: aws
+  deploymentBucket:
+    name: certificate-test.us-east-1.aws.com
+    blockPublicAccess: true
+
+
+plugins:
+  - ./index
+  - serverless-deployment-bucket
+
+custom:
+  certificate:
+    #disabled: false
+    #disableLifecycleHooks: false
+    domain: app.yourdomain.com
+    name: "*.yourdomain.com"
+
