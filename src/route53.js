@@ -6,7 +6,6 @@ const RecordSchema = Joi.object({
   Value: Joi.string().required(),
 });
 
-
 module.exports = {
   /**
    * Create records if not exists
@@ -39,7 +38,7 @@ module.exports = {
           ],
         },
       },
-    ]
+    ];
 
     const recordOpts = {
       HostedZoneId: zoneId,

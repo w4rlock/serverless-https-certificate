@@ -19,7 +19,9 @@ module.exports = {
     } catch (e) {}
 
     // when use a cname for cdn is required a ssl cert arn
-    const certificateArn = await this.createCertificateIfNeed(this.cfg.certificate);
+    const certificateArn = await this.createCertificateIfNeed(
+      this.cfg.certificate
+    );
     // if cert domain is amazon.. this will create dns record to validate it
     const cert = await this.describeCertificateByArn(certificateArn);
 
