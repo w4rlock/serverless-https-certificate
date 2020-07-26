@@ -13,18 +13,20 @@ module.exports = {
   async handleCert() {
     let zoneId;
 
-    try {
-      zoneId = await this.getHostedZoneId(this.cfg.domain);
-      // eslint-disable-next-line
-    } catch (e) {}
+    if (!_.isEmpty(this.cfg.domain)) {
+      try {
+        zoneId = await this.getHostedZoneId(this.cfg.domain);
+        // eslint-disable-next-line
+      } catch (e) {}
+    }
 
     // when use a cname for cdn is required a ssl cert arn
     const certificateArn = await this.createCertificateIfNeed(
       this.cfg.certificate
     );
+
     // if cert domain is amazon.. this will create dns record to validate it
     const cert = await this.describeCertificateByArn(certificateArn);
-
     if (cert.Status === Status.PENDING_VALIDATION) {
       const rec = cert.DomainValidationOptions.find(
         (dns) => this.cfg.certificate === dns.DomainName
