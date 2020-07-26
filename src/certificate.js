@@ -32,10 +32,12 @@ module.exports = {
         (dns) => this.cfg.certificate === dns.DomainName
       );
 
+      const { ResourceRecord } = rec;
+
       // if hosted zone exists will create records to validate certificate
       // if not exits maybe domain is handled for another cloud provider
       if (zoneId) {
-        await this.upsertDnsRecord(zoneId, rec.ResourceRecord);
+        await this.upsertDnsRecord(zoneId, ResourceRecord);
         const region = this.getRegion();
 
         let msg = '\n';
@@ -57,7 +59,7 @@ module.exports = {
         let msg = '\n\n';
         msg += 'To Certificate validation ';
         msg += 'Create next record in your dns provider. \n';
-        msg += `${rec.Name}  ${rec.Type}  ${rec.Value} \n`;
+        msg += `${ResourceRecord.Name}  ${ResourceRecord.Type}  ${ResourceRecord.Value} \n`;
 
         this.log(msg);
       }
