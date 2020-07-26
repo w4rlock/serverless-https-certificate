@@ -1,6 +1,8 @@
 const BaseServerlessPlugin = require('base-serverless-plugin');
 const certificate = require('./src/certificate');
 const route53 = require('./src/route53');
+const awsUtils = require('./src/aws.utils');
+
 
 const LOG_PREFFIX = '[ServerlessHttpsCertificate] -';
 const USR_CONF = 'certificate';
@@ -14,7 +16,7 @@ class ServerlessPlugin extends BaseServerlessPlugin {
    */
   constructor(serverless, options) {
     super(serverless, options, LOG_PREFFIX, USR_CONF);
-    Object.assign(this, certificate, route53);
+    Object.assign(this, certificate, route53, awsUtils);
 
     this.hooks = {
       'before:deploy:deploy': this.dispatch.bind(this, this.beforeDeploy),

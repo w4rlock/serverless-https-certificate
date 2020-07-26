@@ -61,6 +61,7 @@ module.exports = {
     return zoneId;
   },
 
+
   /**
    * Describe Cloud Formation Stack
    *
@@ -81,22 +82,24 @@ module.exports = {
         StackName: stack,
       });
     } catch (err) {
-      stackResult = '';
+      stackResult = ''
     }
 
     return stackResult;
   },
+
 
   /**
    * Print Cloud Formation Stack Outputs
    *
    * @param {string} stackName='' Stack name
    */
-  async printStackOutputs(stackName = '') {
+  async printStackOutputs(stackName = ''){
     const stackResult = this.describeStack(stackName);
     const rawout = _.get(stackResult, 'Stacks[0].Outputs', []);
     const out = rawout.reduce(
-      (obj, item) => Object.assign(obj, { [item.OutputKey]: item.OutputValue }),
+      (obj, item) =>
+        Object.assign(obj, { [item.OutputKey]: item.OutputValue }),
       {}
     );
 
@@ -104,6 +107,7 @@ module.exports = {
       `\nStack output:\n${JSON.stringify(out, undefined, 2)}`
     );
   },
+
 
   /**
    * Get ApiGateWay Rest API Id
