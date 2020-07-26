@@ -1,6 +1,6 @@
 {
   "name": "serverless-https-certificate",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Serverless acm https certificate plugin",
   "keywords": [
     "Serverless"
