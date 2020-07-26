@@ -14,8 +14,8 @@ npm i -E serverless-https-certificate
 
 custom:
   certificate:
-    disabled: false                     # optional
-    disableLifecycleHooks: false        # optional
+    disabled: false                     # optional, disable this plugin
+    disableLifecycleHooks: false        # optional, disable serverless lifecycle hook, util for call this plugin from another plugin
     domain: app.yourdomain.com.         # aws domain for create dns record for certificate validation
     name: "*.yourdomain.com"            # certificate name
 
