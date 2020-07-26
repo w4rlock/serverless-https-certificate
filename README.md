@@ -16,8 +16,8 @@ custom:
   certificate:
     disabled: false                     # optional
     disableLifecycleHooks: false        # optional
-    domain: app.yourdomain.com
-    name: "*.yourdomain.com"
+    domain: app.yourdomain.com.         # aws domain for create dns record for certificate validation
+    name: "*.yourdomain.com"            # certificate name
 
 ```
 
