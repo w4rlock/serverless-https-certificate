@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.5](https://github.com/w4rlock/serverless-https-certificate/compare/release-0.0.4...release-0.0.5) (2020-07-26)
+
+
+### Features
+
+* add optional domain for hosted zone ([b7c21f1](https://github.com/w4rlock/serverless-https-certificate/commit/b7c21f1e7dd133e0a00580a61b30a6b385e5de97))
+
 ### 0.0.4 (2020-07-26)
 
 
