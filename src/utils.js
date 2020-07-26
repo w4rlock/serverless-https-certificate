@@ -10,7 +10,7 @@ module.exports = {
    * @param {Number} ms milliseconds
    */
   sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
+    return new Promise((resolve) => setTimeout(resolve, ms));
   },
   /*
    * Read file
@@ -80,5 +80,5 @@ module.exports = {
     const ymlContent = this.yamlLoad(template);
 
     return ymlContent;
-  }
+  },
 };

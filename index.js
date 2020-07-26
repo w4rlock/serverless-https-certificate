@@ -4,7 +4,6 @@ const route53 = require('./src/route53');
 const awsUtils = require('./src/aws.utils');
 const utils = require('./src/utils');
 
-
 const LOG_PREFFIX = '[ServerlessHttpsCertificate] -';
 const USR_CONF = 'certificate';
 

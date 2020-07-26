@@ -1,6 +1,6 @@
 {
   "name": "serverless-https-certificate",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Serverless acm https certificate plugin",
   "keywords": [
     "Serverless"
@@ -32,6 +32,8 @@
   "dependencies": {
     "@hapi/joi": "17.1.1",
     "base-serverless-plugin": "0.5.1",
+    "handlebars": "4.7.6",
+    "js-yaml": "3.14.0",
     "lodash": "4.17.19"
   },
   "devDependencies": {
