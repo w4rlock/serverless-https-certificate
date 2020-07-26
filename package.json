@@ -1,6 +1,6 @@
 {
   "name": "serverless-https-certificate",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Serverless acm https certificate plugin",
   "keywords": [
     "Serverless"
@@ -30,25 +30,23 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@hapi/joi": "17.1.1",
     "base-serverless-plugin": "0.5.1",
-    "lodash": "4.17.19",
-    "standard-version": "8.0.2"
+    "lodash": "4.17.19"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "8.3.4",
     "babel-eslint": "10.1.0",
     "commitlint": "8.3.5",
-    "eslint": "6.8.0",
-    "eslint-config-airbnb": "18.1.0",
-    "eslint-config-prettier": "6.10.1",
-    "eslint-plugin-import": "2.20.1",
-    "eslint-plugin-jsx-a11y": "6.2.3",
-    "eslint-plugin-prettier": "3.1.2",
-    "eslint-plugin-react": "7.19.0",
+    "eslint": "7.0.0",
+    "eslint-config-airbnb-base": "14.1.0",
+    "eslint-config-prettier": "6.11.0",
+    "eslint-plugin-import": "2.20.2",
+    "eslint-plugin-prettier": "3.1.3",
     "husky": "4.2.3",
     "lint-staged": "10.0.8",
-    "npx": "10.2.2",
     "prettier": "2.0.1",
-    "serverless-deployment-bucket": "1.1.2"
+    "serverless-deployment-bucket": "1.1.2",
+    "standard-version": "8.0.2"
   }
 }
