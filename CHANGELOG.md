@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6](https://github.com/w4rlock/serverless-https-certificate/compare/release-0.0.5...release-0.0.6) (2020-07-26)
+
+
+### Bug Fixes
+
+* aws utils ([700163f](https://github.com/w4rlock/serverless-https-certificate/commit/700163f808ba13b0a0fceda618a6e18c06b71399))
+
 ### [0.0.5](https://github.com/w4rlock/serverless-https-certificate/compare/release-0.0.4...release-0.0.5) (2020-07-26)
 
 
