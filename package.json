@@ -34,7 +34,7 @@
     "base-serverless-plugin": "0.5.1",
     "handlebars": "4.7.6",
     "js-yaml": "3.14.0",
-    "lodash": "4.17.19"
+    "lodash": "4.17.21"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "8.3.4",
